@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), View.OnClickListener{
+    private lateinit var score1: TextView
+    private lateinit var score2: TextView
     private lateinit var button1: Button
     private lateinit var button2: Button
     private lateinit var button3: Button
@@ -22,6 +25,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     var activePlayer = 1
 
+    var firstScore = 0
+    var secondScore = 0
+
     private var firstPlayer = ArrayList<Int>()
     private var secondPlayer = ArrayList<Int>()
 
@@ -31,6 +37,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         init()
     }
     private fun init(){
+        score1 = findViewById(R.id.score1)
+        score2 = findViewById(R.id.score2)
         button1 = findViewById(R.id.button1)
         button2 = findViewById(R.id.button2)
         button3 = findViewById(R.id.button3)
@@ -112,7 +120,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         if (activePlayer == 1){
             clickedView.text = "X"
-            clickedView.setTextColor(Color.BLACK)
+            clickedView.setTextColor(Color.WHITE)
             activePlayer = 2
             firstPlayer.add(buttonNumber)
         }else if (activePlayer == 2){
@@ -128,51 +136,179 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         var winnerPlayer = 0
         if (firstPlayer.contains(1) && firstPlayer.contains(2) && firstPlayer.contains(3)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button4.isEnabled = false
+            button5.isEnabled = false
+            button6.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (secondPlayer.contains(1) && secondPlayer.contains(2) && secondPlayer.contains(3)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button4.isEnabled = false
+            button5.isEnabled = false
+            button6.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (firstPlayer.contains(4) && firstPlayer.contains(5) && firstPlayer.contains(6)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (secondPlayer.contains(4) && secondPlayer.contains(5) && secondPlayer.contains(6)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (firstPlayer.contains(7) && firstPlayer.contains(8) && firstPlayer.contains(9)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
+            button5.isEnabled = false
+            button6.isEnabled = false
         }
         if (secondPlayer.contains(7) && secondPlayer.contains(8) && secondPlayer.contains(9)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
+            button5.isEnabled = false
+            button6.isEnabled = false
         }
         if (firstPlayer.contains(1) && firstPlayer.contains(4) && firstPlayer.contains(7)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button5.isEnabled = false
+            button6.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (secondPlayer.contains(1) && secondPlayer.contains(4) && secondPlayer.contains(7)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button5.isEnabled = false
+            button6.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (firstPlayer.contains(2) && firstPlayer.contains(5) && firstPlayer.contains(8)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button1.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
+            button6.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
         }
         if (secondPlayer.contains(2) && secondPlayer.contains(5) && secondPlayer.contains(8)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button1.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
+            button6.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
         }
         if (firstPlayer.contains(3) && firstPlayer.contains(6) && firstPlayer.contains(9)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button4.isEnabled = false
+            button5.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
         }
         if (secondPlayer.contains(3) && secondPlayer.contains(6) && secondPlayer.contains(9)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button4.isEnabled = false
+            button5.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
         }
         if (firstPlayer.contains(1) && firstPlayer.contains(5) && firstPlayer.contains(9)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
+            button6.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
         }
         if (secondPlayer.contains(1) && secondPlayer.contains(5) && secondPlayer.contains(9)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button2.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
+            button6.isEnabled = false
+            button7.isEnabled = false
+            button8.isEnabled = false
         }
         if (firstPlayer.contains(3) && firstPlayer.contains(5) && firstPlayer.contains(7)) {
             winnerPlayer = 1
+            firstScore += 1
+            score1.text = firstScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button4.isEnabled = false
+            button6.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (secondPlayer.contains(3) && secondPlayer.contains(5) && secondPlayer.contains(7)) {
             winnerPlayer = 2
+            secondScore += 1
+            score2.text = secondScore.toString()
+            button1.isEnabled = false
+            button2.isEnabled = false
+            button4.isEnabled = false
+            button6.isEnabled = false
+            button8.isEnabled = false
+            button9.isEnabled = false
         }
         if (winnerPlayer == 1){
             Toast.makeText(applicationContext, "X won", Toast.LENGTH_SHORT).show()
